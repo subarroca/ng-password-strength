@@ -1,6 +1,6 @@
 {
   "name": "ng-password-strength",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "dependencies": {
     "angular": "1.2.16",
     "json3": "~3.3.1",
@@ -17,5 +17,6 @@
   "main": [
     "./dist/scripts/ng-password-strength.js"
   ],
-  "appPath": "app"
+  "appPath": "app",
+  "ignore": []
 }
