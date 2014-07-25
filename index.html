@@ -1,161 +1,224 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Ng-password-strength by subarroca</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Ng-password-strength by subarroca</title>
+
+  <link rel="stylesheet" href="stylesheets/main.css">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Ng-password-strength</h1>
-        <p>Password strength directive for angular</p>
+</head>
 
-        <p class="view"><a href="https://github.com/subarroca/ng-password-strength">View the Project on GitHub <small>subarroca/ng-password-strength</small></a></p>
+<body ng-app="ngPasswordStrength">
+  <div class="wrapper">
+    <header>
+      <h1>Ng-password-strength</h1>
+      <p>Password strength directive for angular</p>
+
+      <p class="view"><a href="https://github.com/subarroca/ng-password-strength">View the Project on GitHub <small>subarroca/ng-password-strength</small></a>
+      </p>
 
 
-        <ul>
-          <li><a href="https://github.com/subarroca/ng-password-strength/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/subarroca/ng-password-strength/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/subarroca/ng-password-strength">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a name="ng-password-strength" class="anchor" href="#ng-password-strength"><span class="octicon octicon-link"></span></a>ng-password-strength</h1>
+      <ul>
+        <li><a href="https://github.com/subarroca/ng-password-strength/zipball/master">Download <strong>ZIP File</strong></a>
+        </li>
+        <li><a href="https://github.com/subarroca/ng-password-strength/tarball/master">Download <strong>TAR Ball</strong></a>
+        </li>
+        <li><a href="https://github.com/subarroca/ng-password-strength">View On <strong>GitHub</strong></a>
+        </li>
+      </ul>
+    </header>
+    <section>
+      <p>Based on:</p>
 
-<p>Password strength checker wrapped in an angular directive
-Based on:</p>
+      <ul>
+        <li> <a href="http://blog.brunoscopelliti.com/angularjs-directive-to-test-the-strength-of-a-password">http://blog.brunoscopelliti.com/angularjs-directive-to-test-the-strength-of-a-password</a>
+        </li>
+        <li> <a href="http://www.passwordmeter.com">http://www.passwordmeter.com</a>
+        </li>
+      </ul>
 
-<ul>
-<li>  <a href="http://blog.brunoscopelliti.com/angularjs-directive-to-test-the-strength-of-a-password">http://blog.brunoscopelliti.com/angularjs-directive-to-test-the-strength-of-a-password</a>
-</li>
-<li>  <a href="http://www.passwordmeter.com">http://www.passwordmeter.com</a>
-</li>
-</ul><h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+      <h2>
+        <a name="demo" class="anchor" href="#demo">
+          <span class="octicon octicon-link"></span>
+        </a>Demo</h2>
 
-<ol>
-<li>
-<p>Bower should add <code>ng-password-strength.min.js</code> to you main file (index.html)</p>
+      <div class="panel panel-default form-group demo">
+        <div class="panel-body">
+          <input type="text" class="form-control" id="inputPass" placeholder="Password" ng-model="user.password">
+          <div ng-password-strength="user.password"></div>
+        </div>
+      </div>
 
-<p>you can download this by:</p>
+      <h2>
+        <a name="usage" class="anchor" href="#usage">
+          <span class="octicon octicon-link"></span>
+        </a>Usage</h2>
 
-<ul>
-<li>using bower and running <code>bower install ng-password-strength</code>
-</li>
-<li>downloading the <a href="https://raw.github.com/subarroca/ng-password-strength/master/dist/ng-password-strength.min.js">production version</a> or the <a href="https://raw.github.com/subarroca/ng-password-strength/master/dist/ng-password-strength.js">development version</a>.</li>
-</ul>
-<p>In your web page:</p>
+      <ol>
+        <li>
+          <p>Bower should add
+            <code>ng-password-strength.min.js</code>to you main file (index.html)</p>
 
-<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"ng-password-strength/dist/scripts/ng-password-strength.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</pre></div>
-</li>
-<li>
-<p>Bower should add <code>bootstrap</code>, <code>angular-bootstrap</code>, <code>underscore</code> and <code>underscore.string</code> to your main file (index.html). Some of them are not automatically added so you'd better check them.</p>
+          <p>you can download this by:</p>
 
-<div class="highlight highlight-html"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"bootstrap/dist/css/bootstrap.css"</span> <span class="nt">/&gt;</span>
+          <ul>
+            <li>using bower and running
+              <code>bower install ng-password-strength</code>
+            </li>
+            <li>downloading the <a href="https://raw.github.com/subarroca/ng-password-strength/master/dist/ng-password-strength.min.js">production version</a> or the <a href="https://raw.github.com/subarroca/ng-password-strength/master/dist/ng-password-strength.js">development version</a>.</li>
+          </ul>
+          <p>In your web page:</p>
+
+          <div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"ng-password-strength/dist/scripts/ng-password-strength.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre>
+          </div>
+        </li>
+        <li>
+          <p>Bower should add
+            <code>bootstrap</code>,
+            <code>angular-bootstrap</code>,
+            <code>underscore</code>and
+            <code>underscore.string</code>to your main file (index.html). Some of them are not automatically added so you'd better check them.</p>
+
+          <div class="highlight highlight-html"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"bootstrap/dist/css/bootstrap.css"</span> <span class="nt">/&gt;</span>
 
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular/angular.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"underscore/underscore.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"underscore.string/lib/underscore.string.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</pre></div>
-</li>
-<li>
-<p>Set <code>ng-password-strength</code> as a dependency in your module</p>
+</pre>
+          </div>
+        </li>
+        <li>
+          <p>Set
+            <code>ng-password-strength</code>as a dependency in your module</p>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">myapp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myapp'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'ng-password-strength'</span><span class="p">])</span>
-</pre></div>
-</li>
-<li>
-<p>Add ng-password-strength directive to the wanted element, example:</p>
+          <div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">myapp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myapp'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'ng-password-strength'</span><span class="p">])</span>
+</pre>
+          </div>
+        </li>
+        <li>
+          <p>Add ng-password-strength directive to the wanted element, example:</p>
 
-<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">ng-password-strength=</span><span class="s">"pass"</span><span class="nt">&gt;</span> .... <span class="nt">&lt;/div&gt;</span>
-</pre></div>
-</li>
-</ol><h2>
-<a name="formula" class="anchor" href="#formula"><span class="octicon octicon-link"></span></a>Formula</h2>
+          <div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">ng-password-strength=</span><span class="s">"pass"</span><span class="nt">&gt;</span> .... <span class="nt">&lt;/div&gt;</span>
+</pre>
+          </div>
+        </li>
+      </ol>
+      <h2>
+        <a name="formula" class="anchor" href="#formula">
+          <span class="octicon octicon-link"></span>
+        </a>Formula</h2>
 
-<p>Values limited to [0-100]</p>
+      <p>Values limited to [0-100]</p>
 
-<ul>
-<li>
-<p>Pros:</p>
+      <ul>
+        <li>
+          <p>Pros:</p>
 
-<ul>
-<li>Number of Characters <code>+ n*4</code>
-</li>
-<li>Uppercase Letters (if any uppercase)  <code>+ (len-n)*2</code>
-</li>
-<li>Lowercase Letters (if any lowercase)  <code>+ (len-n)*2</code>
-</li>
-<li>Numbers (if any letter)  <code>+ n*4</code>
-</li>
-<li>Symbols  <code>+ n*6</code>
-</li>
-<li>Middle Numbers or Symbols  <code>+ n*2</code>
-</li>
-<li>Requirements <code>+ n*2</code>
-</li>
-</ul>
-</li>
-<li>
-<p>Cons:</p>
+          <ul>
+            <li>Number of Characters
+              <code>+ n*4</code>
+            </li>
+            <li>Uppercase Letters (if any uppercase)
+              <code>+ (len-n)*2</code>
+            </li>
+            <li>Lowercase Letters (if any lowercase)
+              <code>+ (len-n)*2</code>
+            </li>
+            <li>Numbers (if any letter)
+              <code>+ n*4</code>
+            </li>
+            <li>Symbols
+              <code>+ n*6</code>
+            </li>
+            <li>Middle Numbers or Symbols
+              <code>+ n*2</code>
+            </li>
+            <li>Requirements
+              <code>+ n*2</code>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>Cons:</p>
 
-<ul>
-<li>Letters Only <code>- n</code>
-</li>
-<li>Numbers Only <code>- n</code>
-</li>
-<li>Repeat Characters (Case Insensitive) <code>- (n/len) *10</code>
-</li>
-<li>Consecutive Uppercase Letters  <code>- n*2</code>
-</li>
-<li>Consecutive Lowercase Letters  <code>- n*2</code>
-</li>
-<li>Consecutive Numbers  <code>- n*2</code>
-</li>
-<li>Sequential Letters (3+)  <code>- n*3</code>
-</li>
-<li>Sequential Numbers (3+)  <code>- n*3</code>
-</li>
-<li>Sequential Symbols (3+)  <code>- n*3</code>
-</li>
-</ul>
-</li>
-</ul><h2>
-<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h2>
+          <ul>
+            <li>Letters Only
+              <code>- n</code>
+            </li>
+            <li>Numbers Only
+              <code>- n</code>
+            </li>
+            <li>Repeat Characters (Case Insensitive)
+              <code>- (n/len) *10</code>
+            </li>
+            <li>Consecutive Uppercase Letters
+              <code>- n*2</code>
+            </li>
+            <li>Consecutive Lowercase Letters
+              <code>- n*2</code>
+            </li>
+            <li>Consecutive Numbers
+              <code>- n*2</code>
+            </li>
+            <li>Sequential Letters (3+)
+              <code>- n*3</code>
+            </li>
+            <li>Sequential Numbers (3+)
+              <code>- n*3</code>
+            </li>
+            <li>Sequential Symbols (3+)
+              <code>- n*3</code>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h2>
+        <a name="examples" class="anchor" href="#examples">
+          <span class="octicon octicon-link"></span>
+        </a>Examples</h2>
 
-<p>See <code>app/index.html</code> in the respository.</p>
+      <p>See
+        <code>app/index.html</code>in the respository.</p>
 
-<h2>
-<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+      <h2>
+        <a name="todo" class="anchor" href="#todo">
+          <span class="octicon octicon-link"></span>
+        </a>TODO</h2>
 
-<p>Create tests</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/subarroca">subarroca</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-53193250-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+      <p>Create tests</p>
+    </section>
+    <footer>
+      <p>This project is maintained by <a href="https://github.com/subarroca">subarroca</a>
+      </p>
+      <p>
+        <small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a>
+        </small>
+      </p>
+    </footer>
+  </div>
+  <script src="javascripts/scale.fix.js"></script>
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+    var pageTracker = _gat._getTracker("UA-53193250-1");
+    pageTracker._trackPageview();
+  } catch (err) {}
+  </script>
 
-  </body>
+  <script src="javascripts/vendor.js"></script>
+  <script src="javascripts/ng-password-strength.min.js"></script>
+
+</body>
+
 </html>

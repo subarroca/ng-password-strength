@@ -10,6 +10,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color:#222;
   margin:0 0 20px;
+  font-weight: bold;
 }
 
 p, ul, ol, table, pre, dl {
@@ -252,4 +253,11 @@ footer {
     font-size:12pt;
     color:#444;
   }
+}
+
+
+
+.demo .progress{
+  margin-top: 10px;
+  margin-bottom: 0;
 }
