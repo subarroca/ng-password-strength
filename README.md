@@ -12,7 +12,7 @@ Based on:
 
 ## Usage
 
-1. Add `ng-password-strength.min.js` to you main file (index.html)
+1. Bower should add `ng-password-strength.min.js` to you main file (index.html)
 
   you can download this by:
   * using bower and running `bower install ng-password-strength`
@@ -24,16 +24,25 @@ Based on:
   In your web page:
 
   ```html
-  <script src="angular.js"></script>
-  <script src="dist/ng-password-strength.min.js"></script>
+  <script src="ng-password-strength/dist/scripts/ng-password-strength.js"></script>
   ```
 
-2. Set `ng-password-strength` as a dependency in your module
+2. Bower should add `bootstrap`, `angular-bootstrap`, `underscore` and `underscore.string` to your main file (index.html). Some of them are not automatically added so you'd better check them.
+
+  ```html
+  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css" />
+  
+  <script src="angular/angular.js"></script>
+  <script src="underscore/underscore.js"></script>
+  <script src="underscore.string/lib/underscore.string.js"></script>
+  ```
+
+3. Set `ng-password-strength` as a dependency in your module
   ```javascript
   var myapp = angular.module('myapp', ['ng-password-strength'])
   ```
 
-3. Add ng-password-strength directive to the wanted element, example:
+4. Add ng-password-strength directive to the wanted element, example:
   ```html
   <div ng-password-strength="pass"> .... </div>
   ```
