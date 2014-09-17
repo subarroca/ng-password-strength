@@ -6,9 +6,9 @@
     "json3": "~3.3.1",
     "es5-shim": "~3.1.0",
     "bootstrap-sass-official": "~3.2.0",
-    "underscore": "~1.6.0",
     "underscore.string": "~2.3.3",
-    "angular-bootstrap": "~0.11.0"
+    "angular-bootstrap": "~0.11.0",
+    "lodash": "~2.4.1"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",
