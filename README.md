@@ -39,7 +39,7 @@ Based on:
 
 3. Set `ng-password-strength` as a dependency in your module
   ```javascript
-  var myapp = angular.module('myapp', ['ng-password-strength'])
+  var myapp = angular.module('myapp', ['ngPasswordStrength'])
   ```
 
 4. Add ng-password-strength directive to the wanted element, example:
