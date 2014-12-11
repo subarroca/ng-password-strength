@@ -44,8 +44,10 @@ Based on:
 
 4. Add ng-password-strength directive to the wanted element, example:
   ```html
-  <div ng-password-strength="pass"> .... </div>
+  <div ng-password-strength="pass" strength="passwordStrength"> .... </div>
   ```
+
+  You can get the value [0-100] through the param 'strength'
 
 ## Formula
 Values limited to [0-100]

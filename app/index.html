@@ -26,8 +26,9 @@
     <h1>ngPasswordStrength</h1>
     <div class="form-group">
       <input type="text" class="form-control" id="inputPass" placeholder="Password" ng-model="user.password">
-      <div ng-password-strength="user.password"></div>
+      <div ng-password-strength="user.password" strength="passStrength"></div>
     </div>
+    <div>Current strength is <strong>{{passStrength}}</strong></div>
   </div>
 
 

@@ -18,7 +18,8 @@ angular.module('ngPasswordStrength', [
       template: '<progressbar value="value" type="{{class}}">{{value}}%</progressbar>',
       restrict: 'A',
       scope: {
-        pwd: '=ngPasswordStrength'
+        pwd: '=ngPasswordStrength',
+        value: '=strength'
       },
       link: function(scope /*, elem, attrs*/ ) {
         var
