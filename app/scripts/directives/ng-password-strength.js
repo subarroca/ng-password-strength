@@ -9,10 +9,10 @@
  * # ngPasswordStrength
  */
 angular.module('ngPasswordStrength', [
-  'ui.bootstrap.progressbar',
-  'template/progressbar/progress.html',
-  'template/progressbar/progressbar.html'
-])
+    'ui.bootstrap.progressbar',
+    'template/progressbar/progress.html',
+    'template/progressbar/progressbar.html'
+  ])
   .directive('ngPasswordStrength', function() {
     return {
       template: '<progressbar value="value" type="{{class}}">{{value}}%</progressbar>',
@@ -25,10 +25,10 @@ angular.module('ngPasswordStrength', [
         var
           mesureStrength = function(p) {
             var stringReverse = function(str) {
-							for (var i = str.length - 1, out = ''; i >= 0; out += str[i--]) { }
-							return out;
-						},
-            matches = {
+                for (var i = str.length - 1, out = ''; i >= 0; out += str[i--]) {}
+                return out;
+              },
+              matches = {
                 pos: {},
                 neg: {}
               },
@@ -91,7 +91,7 @@ angular.module('ngPasswordStrength', [
               for (i = 0; i < letters.length - 2; i++) {
                 var p2 = p.toLowerCase();
                 forth = letters.substring(i, parseInt(i + 3));
-								back = stringReverse(forth);
+                back = stringReverse(forth);
                 if (p2.indexOf(forth) !== -1 || p2.indexOf(back) !== -1) {
                   counts.neg.seqLetter++;
                 }
@@ -100,7 +100,7 @@ angular.module('ngPasswordStrength', [
               // sequential numbers (back and forth)
               for (i = 0; i < numbers.length - 2; i++) {
                 forth = numbers.substring(i, parseInt(i + 3));
-								back = stringReverse(forth);
+                back = stringReverse(forth);
                 if (p.indexOf(forth) !== -1 || p.toLowerCase().indexOf(back) !== -1) {
                   counts.neg.seqNumber++;
                 }
@@ -109,7 +109,7 @@ angular.module('ngPasswordStrength', [
               // sequential symbols (back and forth)
               for (i = 0; i < symbols.length - 2; i++) {
                 forth = symbols.substring(i, parseInt(i + 3));
-								back = stringReverse(forth);
+                back = stringReverse(forth);
                 if (p.indexOf(forth) !== -1 || p.toLowerCase().indexOf(back) !== -1) {
                   counts.neg.seqSymbol++;
                 }
@@ -118,8 +118,8 @@ angular.module('ngPasswordStrength', [
               // repeated chars
               counts.neg.repeated = _.chain(p.toLowerCase().split('')).
               countBy(function(val) {
-                return val;
-              })
+                  return val;
+                })
                 .reject(function(val) {
                   return val === 1;
                 })
