@@ -24,7 +24,11 @@ angular.module('ngPasswordStrength', [
       link: function(scope /*, elem, attrs*/ ) {
         var
           mesureStrength = function(p) {
-            var matches = {
+            var stringReverse = function(str) {
+							for (var i = str.length - 1, out = ''; i >= 0; out += str[i--]) { }
+							return out;
+						},
+            matches = {
                 pos: {},
                 neg: {}
               },
@@ -87,7 +91,7 @@ angular.module('ngPasswordStrength', [
               for (i = 0; i < letters.length - 2; i++) {
                 var p2 = p.toLowerCase();
                 forth = letters.substring(i, parseInt(i + 3));
-                back = _.str.reverse(forth);
+								back = stringReverse(forth);
                 if (p2.indexOf(forth) !== -1 || p2.indexOf(back) !== -1) {
                   counts.neg.seqLetter++;
                 }
@@ -96,7 +100,7 @@ angular.module('ngPasswordStrength', [
               // sequential numbers (back and forth)
               for (i = 0; i < numbers.length - 2; i++) {
                 forth = numbers.substring(i, parseInt(i + 3));
-                back = _.str.reverse(forth);
+								back = stringReverse(forth);
                 if (p.indexOf(forth) !== -1 || p.toLowerCase().indexOf(back) !== -1) {
                   counts.neg.seqNumber++;
                 }
@@ -105,7 +109,7 @@ angular.module('ngPasswordStrength', [
               // sequential symbols (back and forth)
               for (i = 0; i < symbols.length - 2; i++) {
                 forth = symbols.substring(i, parseInt(i + 3));
-                back = _.str.reverse(forth);
+								back = stringReverse(forth);
                 if (p.indexOf(forth) !== -1 || p.toLowerCase().indexOf(back) !== -1) {
                   counts.neg.seqSymbol++;
                 }
