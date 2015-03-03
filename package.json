@@ -9,11 +9,9 @@
       "type": "MIT"
     }
   ],
-  "dependencies": {
-  },
   "devDependencies": {
     "grunt": "^0.4.1",
-    "grunt-sass": "^0.18.0"
+    "grunt-sass": "^0.18.0",
     "grunt-autoprefixer": "^0.7.3",
     "grunt-concurrent": "^0.5.0",
     "grunt-contrib-clean": "^0.5.0",
