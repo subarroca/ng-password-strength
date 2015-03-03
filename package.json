@@ -4,10 +4,14 @@
   "description": "ng-password-strength",
   "homepage": "https://github.com/subarroca/ng-password-strength",
   "bugs": "https://github.com/subarroca/ng-password-strength/issues",
-  "licenses": [{
-    "type": "MIT"
-  }],
-  "dependencies": {},
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "grunt-sass": "^0.18.0"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
@@ -46,7 +50,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/subarroca/ng-password-strength.git"
-  },"author": {
+  },
+  "author": {
     "name": "Salvador Subarroca",
     "email": "",
     "url": "https://github.com/subarroca"
