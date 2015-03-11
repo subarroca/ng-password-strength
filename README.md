@@ -87,25 +87,25 @@ See `app/index.html` in the respository.
 Create tests
 
 ## Changelog
-# v0.2.0
+### v0.2.0
 * added dependency: lodash
 * removed dependencies: bootstrap, ng-lodash
 * added classes for further customization
 * added modes for faster customization: [foundation, bootstrap]
 
-# v0.1.0
+### v0.1.0
 * added dependency: ng-lodash
 * removed dependencies: underscore.string
 * changed compass to node-sass
 
-# v0.0.8
+### v0.0.8
 * lodash update
 
-# v0.0.7
+### v0.0.7
 * strength value feedback
 
-# v0.0.6
+### v0.0.6
 * change underscore to lodash
 
-# v0.0.1
+### v0.0.1
 * formula-based value calculations
