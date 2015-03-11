@@ -9,6 +9,10 @@ Based on:
   [bruno]: http://blog.brunoscopelliti.com/angularjs-directive-to-test-the-strength-of-a-password
   [meter]: http://www.passwordmeter.com
 
+## Examples
+See `app/index.html` in the respository.
+[Live example] [live-example]
+[live-example]: http://subarroca.github.io/ng-password-strength/
 
 ## Usage
 
@@ -77,9 +81,6 @@ Values limited to [0-100]
   * Sequential Letters (3+)  `- n*3`
   * Sequential Numbers (3+)  `- n*3`
   * Sequential Symbols (3+)  `- n*3`
-
-## Examples
-See `app/index.html` in the respository.
 
 ## TODO
 Create tests
