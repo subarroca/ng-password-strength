@@ -27,14 +27,13 @@ Based on:
   <script src="ng-password-strength/dist/scripts/ng-password-strength.js"></script>
   ```
 
-2. Bower should add `bootstrap`, `angular-bootstrap`, `underscore` and `underscore.string` to your main file (index.html). Some of them are not automatically added so you'd better check them.
+2. Bower should add `ng-lodash` to your main file (index.html). Some of them are not automatically added so you'd better check them.
 
   ```html
   <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css" />
   
-  <script src="angular/angular.js"></script>
-  <script src="underscore/underscore.js"></script>
-  <script src="underscore.string/lib/underscore.string.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/ng-lodash/build/ng-lodash.js"></script>
   ```
 
 3. Set `ng-password-strength` as a dependency in your module
@@ -44,10 +43,17 @@ Based on:
 
 4. Add ng-password-strength directive to the wanted element, example:
   ```html
-  <div ng-password-strength="pass" strength="passwordStrength"> .... </div>
+  <div ng-password-strength="pass"> .... </div>
   ```
 
-  You can get the value [0-100] through the param 'strength'
+* Accepted addtional params:
+
+  * strength: value returned [0-100]
+  * mode: 'foundation' or 'bootstrap'. Sets inner-class, inner-class-prefix, outter-class-prefix. No need to set one by one
+  * inner-class: inner bar class (i.e. 'progress-bar')
+  * inner-class-prefix: inner bar class prefix (i.e. 'progress-bar-' => 'progress-bar-success')
+  * outter-class-prefix: root element class prefix (i.e. 'progress-bar-' => 'progress-bar-success')
+
 
 ## Formula
 Values limited to [0-100]
@@ -79,3 +85,27 @@ See `app/index.html` in the respository.
 
 ## TODO
 Create tests
+
+## Changelog
+# v0.2.0
+* added dependency: lodash
+* removed dependencies: bootstrap, ng-lodash
+* added classes for further customization
+* added modes for faster customization: [foundation, bootstrap]
+
+# v0.1.0
+* added dependency: ng-lodash
+* removed dependencies: underscore.string
+* changed compass to node-sass
+
+# v0.0.8
+* lodash update
+
+# v0.0.7
+* strength value feedback
+
+# v0.0.6
+* change underscore to lodash
+
+# v0.0.1
+* formula-based value calculations
