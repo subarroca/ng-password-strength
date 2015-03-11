@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="ngPasswordStrength" ng-init="mode='bootstrap'">
 
 <head>
   <meta charset="utf-8">
@@ -11,31 +11,59 @@
   <!-- bower:css -->
   <!-- endbower -->
   <!-- endbuild -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" ng-if="mode === 'bootstrap'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/foundation.css" ng-if="mode === 'foundation'">
+
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 </head>
 
-<body ng-app="ngPasswordStrength">
+<body>
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
   <!-- Add your site or application content here -->
   <div class="container">
-    <h1>ngPasswordStrength</h1>
-    <div class="form-group">
-      <input type="text" class="form-control" id="inputPass" placeholder="Password" ng-model="user.password">
-      <div ng-password-strength="user.password" strength="passStrength"></div>
+    <div class="row">
+      <h1>ngPasswordStrength</h1>
+      <h3>Choose:</h3>
+      <ul>
+        <li>
+          <a ng-class="{true:'active'}[mode === 'foundation']" ng-click="mode='foundation'">Foundation</a>
+        </li>
+        <li>
+          <a ng-class="{true:'active'}[mode === 'bootstrap']" ng-click="mode='bootstrap'">Bootstrap</a>
+        </li>
+      </ul>
+
+
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputPass" placeholder="Password" ng-model="user.password">
+
+        <h2>Vars</h2>
+        <div ng-if="mode === 'foundation'">
+          <div ng-password-strength="user.password" strength="passStrength" inner-class="meter"></div>
+        </div>
+        <div ng-if="mode === 'bootstrap'">
+          <div ng-password-strength="user.password" strength="passStrength" inner-class="progress-bar" inner-class-prefix="progress-bar-"></div>
+        </div>
+
+        <h2>Mode</h2>
+        <div ng-password-strength="user.password" strength="passStrength" mode="mode"></div>
+      </div>
+      <div>Current strength is <strong>{{passStrength}}</strong>
+      </div>
     </div>
-    <div>Current strength is <strong>{{passStrength}}</strong></div>
   </div>
 
 
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/ng-lodash/build/ng-lodash.js"></script>
+  <script src="bower_components/lodash/lodash.js"></script>
   <!-- endbower -->
 
   <!-- endbuild -->
