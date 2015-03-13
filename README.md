@@ -43,14 +43,13 @@ See `app/index.html` in the respository.
   var myapp = angular.module('myapp', ['ngPasswordStrength'])
   ```
 
-4. Add ng-password-strength directive to the wanted element, example:
+4. Add ng-password-strength directive to the wanted element & a scope variable to the strength attribute, example:
   ```html
-  <div ng-password-strength="pass"> .... </div>
+  <div ng-password-strength="pass" strength="pass_strength"> .... </div>
   ```
 
 * Accepted addtional params:
 
-  * strength: value returned [0-100]
   * mode: 'foundation' or 'bootstrap'. Sets inner-class, inner-class-prefix, outter-class-prefix. No need to set one by one
   * inner-class: inner bar class (i.e. 'progress-bar')
   * inner-class-prefix: inner bar class prefix (i.e. 'progress-bar-' => 'progress-bar-success')
