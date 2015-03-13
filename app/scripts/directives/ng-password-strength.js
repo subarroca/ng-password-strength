@@ -210,11 +210,11 @@
             scope.$watch('mode', function() {
               scope.mode = scope.mode || 'bootstrap';   //If mode is not defined then default to bootstrap
 
-              if(scope.mode === 'custom'){    //If custom is set as the mode then dont apply any class
+              if(scope.mode === 'bootstrap' || scope.mode === 'foundation'){    //If bootstrap or foundation mode then apply the classes
+                angular.extend(scope, modes[scope.mode]);
                 return;
               }
 
-              angular.extend(scope, modes[scope.mode]);
               scope.valueClass = getClass(scope.value);
             });
 

@@ -50,7 +50,7 @@ See `app/index.html` in the respository.
 
 * Accepted addtional params:
 
-  * mode: 'foundation', 'bootstrap' or 'custom' (for custom styling). Sets inner-class, inner-class-prefix, outter-class-prefix, no need to set one by one. Defaults to 'bootstrap'.
+  * mode: 'foundation', 'bootstrap' or 'custom' (for custom styling). Sets inner-class, inner-class-prefix, outter-class-prefix, no need to set one by one. Defaults to 'bootstrap' if not specified.
   * inner-class: inner bar class (i.e. 'progress-bar')
   * inner-class-prefix: inner bar class prefix (i.e. 'progress-bar-' => 'progress-bar-success')
   * outter-class-prefix: root element class prefix (i.e. 'progress-bar-' => 'progress-bar-success')
