@@ -21,9 +21,11 @@
             innerClassPrefix: '@?',
             outterClassPrefix: '@?',
             innerClass: '@?',
-            mode: '=?'
+            mode: '@?'  //Mode is set via attribute
           },
           link: function(scope /*, elem, attrs*/ ) {
+            scope.value = scope.value || measureStrength(scope.pwd);
+            
             var modes = {
                 foundation: {
                   innerClass: 'meter'
@@ -206,7 +208,13 @@
 
 
             scope.$watch('mode', function() {
-              angular.extend(scope, modes[scope.mode]);
+              scope.mode = scope.mode || 'bootstrap';   //If mode is not defined then default to bootstrap
+
+              if(scope.mode === 'bootstrap' || scope.mode === 'foundation'){    //If bootstrap or foundation mode then apply the classes
+                angular.extend(scope, modes[scope.mode]);
+                return;
+              }
+
               scope.valueClass = getClass(scope.value);
             });
 
@@ -214,6 +222,7 @@
               scope.value = measureStrength(scope.pwd);
               scope.valueClass = getClass(scope.value);
             });
+
           },
         };
       });
