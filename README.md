@@ -29,12 +29,14 @@ See `app/index.html` in the respository.
 
   ```html
   <script src="ng-password-strength/dist/scripts/ng-password-strength.js"></script>
+  <script src="lodash/lodash.js"></script>
   ```
 
 2. Bower should add `ng-password-strength` to your main file (index.html). Some of them are not automatically added so you'd better check them.
 
   ```html
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/lodash/lodash.js"></script>
   <script src="bower_components/ng-password-strength/dist/ng-password-strength.js"></script>
   ```
 
