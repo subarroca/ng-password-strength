@@ -52,7 +52,8 @@
         </div>
 
         <h2>Mode</h2>
-        <div ng-password-strength="user.password" strength="passStrength" mode="mode"></div>
+        <div ng-password-strength="user.password" strength="passStrength" mode="bootstrap" ng-if="mode==='bootstrap'"></div>
+        <div ng-password-strength="user.password" strength="passStrength" mode="foundation" ng-if="mode==='foundation'"></div>
       </div>
       <div>Current strength is <strong>{{passStrength}}</strong>
       </div>
