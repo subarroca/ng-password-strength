@@ -13,14 +13,15 @@
     .directive('ngPasswordStrength',
       function() {
         return {
-          template: '<div class="progress {{valueClass.outter}}"><div class="{{valueClass.inner}} {{innerClass}}" role="progressbar" aria-valuenow="{{value}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( value + \'%\' ) }"><span class="sr-only">{{value}}%</span></div></div>',
+          template: '<div class="progress {{outerClass}} {{valueClass.outer}}"><div class="{{valueClass.inner}} {{innerClass}}" role="progressbar" aria-valuenow="{{value}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( value + \'%\' ) }"><span class="sr-only">{{value}}%</span></div></div>',
           restrict: 'A',
           scope: {
             pwd: '=ngPasswordStrength',
             value: '=strength',
             innerClassPrefix: '@?',
-            outterClassPrefix: '@?',
+            outerClassPrefix: '@?',
             innerClass: '@?',
+            outerClass: '@?',
             mode: '@?' //Mode is set via attribute
           },
           link: function(scope /*, elem, attrs*/ ) {
@@ -36,18 +37,10 @@
               }
             };
 
-
-
-
-
-
-
             // DISPLAY
 
-
             scope.innerClassPrefix = scope.innerClassPrefix || '';
-            scope.outterClassPrefix = scope.outterClassPrefix || '';
-
+            scope.outerClassPrefix = scope.outerClassPrefix || '';
 
             scope.$watch('mode', function() {
 
@@ -65,14 +58,7 @@
               scope.valueClass = getClass(scope.value);
             });
 
-
-
-
-
-
-
             /////////////////////////
-
 
             function measureStrength(p) {
               var stringReverse = function(str) {
@@ -215,23 +201,22 @@
               return Math.max(0, Math.min(100, Math.round(strength)));
             }
 
-
             function getClass(s) {
               switch (Math.round(s / 33)) {
                 case 0:
                 case 1:
                   return {
-                    inner: scope.outterClassPrefix + 'danger',
-                    outter: scope.innerClassPrefix + 'alert'
+                    outer: scope.outerClassPrefix + 'danger',
+                    inner: scope.innerClassPrefix + 'danger'
                   };
                 case 2:
                   return {
-                    outter: scope.outterClassPrefix + 'warning',
+                    outer: scope.outerClassPrefix + 'warning',
                     inner: scope.innerClassPrefix + 'warning'
                   };
                 case 3:
                   return {
-                    outter: scope.outterClassPrefix + 'success',
+                    outer: scope.outerClassPrefix + 'success',
                     inner: scope.innerClassPrefix + 'success'
                   };
               }
