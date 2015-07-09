@@ -13,7 +13,7 @@
     .directive('ngPasswordStrength',
       function() {
         return {
-          template: '<div class="progress {{valueClass.outter}}"><div class="{{valueClass.inner}} {{innerClass}}" role="progressbar" aria-valuenow="{{value}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( value + \'%\' ) }"><span class="sr-only">{{value}}%</span></div></div>',
+          templateUrl: 'scripts/directives/ng-password-strength.tpl.html',
           restrict: 'A',
           scope: {
             pwd: '=ngPasswordStrength',
