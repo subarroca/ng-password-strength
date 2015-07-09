@@ -29,7 +29,10 @@
       };
 
       function link(scope /*, elem, attrs*/ ) {
+
         scope.value = scope.value || PasswordStrengthService.measureStrength(scope.pwd);
+        scope.innerClassPrefix = scope.innerClassPrefix || '';
+        scope.outterClassPrefix = scope.outterClassPrefix || '';
 
         var modes = {
           foundation: {
@@ -40,10 +43,6 @@
             innerClassPrefix: 'progress-bar-'
           }
         };
-
-        scope.innerClassPrefix = scope.innerClassPrefix || '';
-        scope.outterClassPrefix = scope.outterClassPrefix || '';
-
 
         scope.$watch('mode', function() {
 
