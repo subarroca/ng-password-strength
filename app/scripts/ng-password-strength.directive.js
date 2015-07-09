@@ -66,7 +66,7 @@
             case 0:
             case 1:
               return {
-                outter: scope.outterClassPrefix + 'alert',
+                outter: scope.outterClassPrefix + 'danger',
                 inner: scope.innerClassPrefix + 'danger'
               };
             case 2:
