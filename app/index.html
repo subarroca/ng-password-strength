@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" ng-app="ngPasswordStrength" ng-init="mode='bootstrap'">
+<html class="no-js" ng-app="ngPasswordStrength" ng-init="demo.mode='bootstrap'">
 
 <head>
   <meta charset="utf-8">
@@ -12,8 +12,8 @@
   <!-- endbower -->
   <!-- endbuild -->
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" ng-if="mode === 'bootstrap'">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/foundation.css" ng-if="mode === 'foundation'">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" ng-if="demo.mode === 'bootstrap'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/foundation.css" ng-if="demo.mode === 'foundation'">
 
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
@@ -32,10 +32,10 @@
       <h3>Choose:</h3>
       <ul>
         <li>
-          <a ng-class="{true:'active'}[mode === 'foundation']" ng-click="mode='foundation'">Foundation</a>
+          <a ng-class="{true:'active'}[demo.mode === 'foundation']" ng-click="demo.mode='foundation'">Foundation</a>
         </li>
         <li>
-          <a ng-class="{true:'active'}[mode === 'bootstrap']" ng-click="mode='bootstrap'">Bootstrap</a>
+          <a ng-class="{true:'active'}[demo.mode === 'bootstrap']" ng-click="demo.mode='bootstrap'">Bootstrap</a>
         </li>
       </ul>
 
@@ -44,18 +44,18 @@
         <input type="text" class="form-control" id="inputPass" placeholder="Password" ng-model="user.password">
 
         <h2>Vars</h2>
-        <div ng-if="mode === 'foundation'">
-          <div ng-password-strength="user.password" strength="passStrength" inner-class="meter"></div>
+        <div ng-if="demo.mode === 'foundation'">
+          <div ng-password-strength="user.password" strength="demo.passStrength" inner-class="meter"></div>
         </div>
-        <div ng-if="mode === 'bootstrap'">
-          <div ng-password-strength="user.password" strength="passStrength" inner-class="progress-bar" inner-class-prefix="progress-bar-"></div>
+        <div ng-if="demo.mode === 'bootstrap'">
+          <div ng-password-strength="user.password" strength="demo.passStrength" inner-class="progress-bar" inner-class-prefix="progress-bar-"></div>
         </div>
 
         <h2>Mode</h2>
-        <div ng-password-strength="user.password" strength="passStrength" mode="bootstrap" ng-if="mode==='bootstrap'"></div>
-        <div ng-password-strength="user.password" strength="passStrength" mode="foundation" ng-if="mode==='foundation'"></div>
+        <div ng-password-strength="user.password" strength="passStrength" mode="bootstrap" ng-if="demo.mode==='bootstrap'"></div>
+        <div ng-password-strength="user.password" strength="passStrength" mode="foundation" ng-if="demo.mode==='foundation'"></div>
       </div>
-      <div>Current strength is <strong>{{passStrength}}</strong>
+      <div>Current strength is <strong>{{demo.passStrength}}</strong>
       </div>
     </div>
   </div>
