@@ -58,9 +58,8 @@
           counts.pos.numbers = matches.pos.numbers ? matches.pos.numbers.length : 0;
           counts.pos.symbols = matches.pos.symbols ? matches.pos.symbols.length : 0;
 
-          tmp = _.reduce(counts.pos, function(memo, val) {
-            // if has count will add 1
-            return memo + Math.min(1, val);
+          tmp = Object.keys(counts.pos).reduce(function (previous, key) {
+            return previous + Math.min(1, counts.pos[key]);
           }, 0);
 
           counts.pos.numChars = p.length;
@@ -110,18 +109,19 @@
             }
           }
 
-          // repeated chars
-          counts.neg.repeated = _.chain(p.toLowerCase().split('')).
-          countBy(function(val) {
-              return val;
-            })
-            .reject(function(val) {
-              return val === 1;
-            })
-            .reduce(function(memo, val) {
-              return memo + val;
-            }, 0)
-            .value();
+
+          var repeats = {};
+          var _p = p.toLowerCase();
+          var arr = _p.split('');
+          counts.neg.repeated = 0;
+          for(i = 0; i< arr.length; i++) {
+            var _reg = new RegExp(_p[i],'g');
+            var cnt = _p.match(_reg).length;
+            if (cnt > 1 && !repeats[_p[i]]) {
+              repeats[_p[i]] = cnt;
+              counts.neg.repeated += cnt;
+            }
+          }
 
           // Calculations
           strength += counts.pos.numChars * 4;
