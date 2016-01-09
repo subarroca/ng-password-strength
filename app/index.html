@@ -1,78 +1,128 @@
 <!doctype html>
-<html class="no-js" ng-app="ngPasswordStrength" ng-init="demo.mode='bootstrap'">
+<html class="no-js" ng-app="ngPasswordStrength" ng-init="demo.cssMode='bootstrap'; demo.calculationMode='formula'; demo.goal=96">
 
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <!-- build:css(.) styles/vendor.css -->
-  <!-- bower:css -->
-  <!-- endbower -->
-  <!-- endbuild -->
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" ng-if="demo.mode === 'bootstrap'">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/foundation.css" ng-if="demo.mode === 'foundation'">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" ng-if="demo.cssMode === 'bootstrap'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/foundation.css" ng-if="demo.cssMode === 'foundation'">
 
-  <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
-  <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
 </head>
 
 <body>
-  <!--[if lt IE 7]>
+    <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-  <!-- Add your site or application content here -->
-  <div class="container">
-    <div class="row">
-      <h1>ngPasswordStrength</h1>
-      <h3>Choose:</h3>
-      <ul>
-        <li>
-          <a ng-class="{true:'active'}[demo.mode === 'foundation']" ng-click="demo.mode='foundation'">Foundation</a>
-        </li>
-        <li>
-          <a ng-class="{true:'active'}[demo.mode === 'bootstrap']" ng-click="demo.mode='bootstrap'">Bootstrap</a>
-        </li>
-      </ul>
+    <!-- Add your site or application content here -->
+    <div class="container">
+        <div class="row">
+            <h1>ngPasswordStrength</h1>
+            <h3>CSS mode:</h3>
+            <ul>
+                <li>
+                    <a
+                        ng-class="{true:'active'}[demo.cssMode === 'foundation']"
+                        ng-click="demo.cssMode='foundation'">Foundation</a>
+                </li>
+                <li>
+                    <a
+                        ng-class="{true:'active'}[demo.cssMode === 'bootstrap']"
+                        ng-click="demo.cssMode='bootstrap'">Bootstrap</a>
+                </li>
+            </ul>
+
+            <h3>Calculation mode:</h3>
+            <ul>
+                <li>
+                    <a
+                        ng-class="{true:'active'}[demo.calculationMode === 'formula']"
+                        ng-click="demo.calculationMode='formula'">Formula (default)</a>
+                </li>
+                <li>
+                    <a
+                        ng-class="{true:'active'}[demo.calculationMode === 'entropy']"
+                        ng-click="demo.calculationMode='entropy'">Entropy</a>
+                </li>
+            </ul>
+
+            <div
+                class="goal"
+                ng-if="demo.calculationMode==='entropy'">
+                <label for="">Goal</label>
+                <input type="number" ng-model="demo.goal">
+                <span>To improve performance goal is not watched so you have to change password to see how it influences</span>
+            </div>
 
 
-      <div class="form-group">
-        <input type="text" class="form-control" id="inputPass" placeholder="Password" ng-model="user.password">
+            <div class="form-group">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="inputPass"
+                    placeholder="Password"
+                    ng-model="user.password">
 
-        <h2>Vars</h2>
-        <div ng-if="demo.mode === 'foundation'">
-          <div ng-password-strength="user.password" strength="demo.passStrength" inner-class="meter"></div>
+                <h2>Vars</h2>
+                <div
+                    ng-if="demo.cssMode === 'foundation'">
+                        <div
+                            ng-password-strength="user.password"
+                            strength="demo.passStrength"
+                            calculation-mode="{{demo.calculationMode}}"
+                            goal="{{demo.goal}}"
+                            inner-class="meter"></div>
+                </div>
+                <div
+                    ng-if="demo.cssMode === 'bootstrap'">
+                        <div
+                            ng-password-strength="user.password"
+                            strength="demo.passStrength"
+                            calculation-mode="{{demo.calculationMode}}"
+                            goal="{{demo.goal}}"
+                            inner-class="progress-bar"
+                            inner-class-prefix="progress-bar-"></div>
+                </div>
+
+                <h2>Mode</h2>
+                <div
+                    ng-password-strength="user.password"
+                    strength="passStrength"
+                    calculation-mode="{{demo.calculationMode}}"
+                    goal="{{demo.goal}}"
+                    css-mode="{{demo.cssMode}}"></div>
+
+            </div>
+            <div>Current strength is <strong>{{demo.passStrength}}</strong>
+            </div>
         </div>
-        <div ng-if="demo.mode === 'bootstrap'">
-          <div ng-password-strength="user.password" strength="demo.passStrength" inner-class="progress-bar" inner-class-prefix="progress-bar-"></div>
-        </div>
-
-        <h2>Mode</h2>
-        <div ng-password-strength="user.password" strength="passStrength" mode="bootstrap" ng-if="demo.mode==='bootstrap'"></div>
-        <div ng-password-strength="user.password" strength="passStrength" mode="foundation" ng-if="demo.mode==='foundation'"></div>
-      </div>
-      <div>Current strength is <strong>{{demo.passStrength}}</strong>
-      </div>
     </div>
-  </div>
 
 
-  <!-- build:js(.) scripts/vendor.js -->
-  <!-- bower:js -->
-  <script src="bower_components/angular/angular.js"></script>
-  <!-- endbower -->
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <!-- endbower -->
 
-  <!-- endbuild -->
+    <!-- endbuild -->
 
-  <!-- build:js({.tmp,app}) scripts/ng-password-strength.min.js -->
-  <script src="scripts/module.js"></script>
-  <script src="scripts/password-strength.service.js"></script>
-  <script src="scripts/ng-password-strength.directive.js"></script>
-  <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/ng-password-strength.min.js -->
+    <script src="src/_module.js"></script>
+    <script src="src/services/password-strength-formula.factory.js"></script>
+    <script src="src/services/password-strength-entropy.factory.js"></script>
+    <script src="src/directive/ng-password-strength.directive.js"></script>
+    <!-- endbuild -->
 </body>
 
 </html>
