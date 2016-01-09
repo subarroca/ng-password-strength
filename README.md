@@ -53,10 +53,14 @@ See `app/index.html` in the respository.
 * Accepted addtional params:
 
   * strength: value returned [0-100]
-  * mode: 'foundation' or 'bootstrap'. Sets inner-class, inner-class-prefix, outter-class-prefix. No need to set one by one
+
+  * css-mode: 'foundation' or 'bootstrap'. Sets inner-class, inner-class-prefix, outter-class-prefix. No need to set one by one
   * inner-class: inner bar class (i.e. 'progress-bar')
   * inner-class-prefix: inner bar class prefix (i.e. 'progress-bar-' => 'progress-bar-success')
   * outter-class-prefix: root element class prefix (i.e. 'progress-bar-' => 'progress-bar-success')
+
+  * calculation-mode: 'formula' (default) or 'entropy'. Formula is explained below
+  * goal: only used in entropy mode. Fixes the amount to reach. Default: 96
 
 
 ## Formula
@@ -88,6 +92,11 @@ Values limited to [0-100]
 Create tests
 
 ## Changelog
+### v0.3.0
+* formula calculation moved to factory
+* added entropy calculation in a new factory
+* template moved to detached html
+
 ### v0.2.0
 * added dependency: lodash
 * removed dependencies: bootstrap, ng-lodash
